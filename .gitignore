@@ -1,41 +1,54 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Gitで無視するファイルを指定するための設定ファイルです。
+# 詳細については、https://help.github.com/articles/ignoring-files/ を参照してください。
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# 依存関係 (Dependencies)
+# プロジェクトの依存関係がインストールされるディレクトリやファイルは、
+# 各開発環境で再生成されるため、バージョン管理から除外します。
+/node_modules           # Node.jsのパッケージがインストールされるディレクトリ
+/.pnp                   # Yarn Plug'n'Play関連ファイル
+.pnp.*                  # Yarn Plug'n'Play関連ファイル
+.yarn/*                 # Yarnのキャッシュや設定ファイル
+!.yarn/patches          # Yarnのパッチファイルは含める（プロジェクト固有の修正のため）
+!.yarn/plugins          # Yarnのプラグインは含める
+!.yarn/releases         # Yarnのリリースファイルは含める
+!.yarn/versions         # Yarnのバージョンファイルは含める
 
-# testing
-/coverage
+# テスト (Testing)
+# テストカバレッジレポートなど、テスト実行時に生成されるファイルは除外します。
+/coverage               # テストカバレッジレポートの出力ディレクトリ
 
-# next.js
-/.next/
-/out/
+# Next.js 関連 (Next.js Specific)
+# Next.jsのビルドプロセスで生成されるファイルやディレクトリは除外します。
+/.next/                 # Next.jsのビルド出力ディレクトリ
+/out/                   # Next.jsの静的エクスポート出力ディレクトリ
 
-# production
-/build
+# プロダクションビルド (Production)
+# プロダクションビルド時に生成されるファイルは除外します。
+/build                  # 一般的なビルド出力ディレクトリ
 
-# misc
-.DS_Store
-*.pem
+# その他 (Miscellaneous)
+# OSやエディタが生成する一時ファイルや設定ファイルは除外します。
+.DS_Store               # macOSが生成するディレクトリ設定ファイル
+*.pem                   # 秘密鍵ファイル（セキュリティのため）
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# デバッグログ (Debug Logs)
+# デバッグ時に生成されるログファイルは除外します。
+npm-debug.log*          # npmのデバッグログ
+yarn-debug.log*         # Yarnのデバッグログ
+yarn-error.log*         # Yarnのエラーログ
+.pnpm-debug.log*        # pnpmのデバッグログ
 
-# env files (can opt-in for committing if needed)
-.env*
+# 環境変数ファイル (Environment Variables)
+# 機密情報を含む可能性があるため、通常はバージョン管理から除外します。
+# ただし、チーム内で共有する必要がある場合は、.env.exampleのようなテンプレートファイルを作成し、
+# .env* 自体は無視するように設定します。
+.env*                   # .env, .env.local, .env.development.local など全ての環境変数ファイル
 
-# vercel
-.vercel
+# Vercel 関連 (Vercel Specific)
+# Vercelデプロイ時に生成されるファイルは除外します。
+.vercel                  # Vercel CLIが生成する設定ファイル
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# TypeScript 関連 (TypeScript Specific)
+# TypeScriptのコンパイル時に生成されるファイルは除外します。
+*.tsbuildinfo           # TypeScriptのビルド情報ファイル
+next-env.d.ts           # Next.jsが生成するTypeScriptの型定義ファイル

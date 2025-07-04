@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MathForge JP
 
-## Getting Started
+これは、[Next.js](https://nextjs.org) プロジェクトです。`create-next-app` を使用して初期化されました。
 
-First, run the development server:
+## プロジェクト概要
+
+MathForge JP は、学生が無料で多様な数学問題に触れ、対戦・創作・議論を通して実力を高められる国内向けオンラインプラットフォームです。
+
+## 開発環境のセットアップ
+
+### 1. 依存関係のインストール
+
+まず、プロジェクトの依存関係をインストールします。
+
+```bash
+npm install
+```
+
+### 2. 環境変数の設定
+
+Supabaseとの接続には環境変数が必要です。プロジェクトのルートディレクトリに `.env.local` ファイルを作成し、以下の内容で設定してください。
+
+```
+NEXT_PUBLIC_SUPABASE_URL="あなたのSupabaseプロジェクトのURL"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="あなたのSupabaseプロジェクトのAnon Key"
+```
+
+これらの値は、Supabaseダッシュボードの「Project Settings」->「API」で確認できます。
+
+### 3. 開発サーバーの起動
+
+開発サーバーを起動します。
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost.com:3000) を開くと、アプリケーションが表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`src/app/page.tsx` を編集することで、ページの内容を更新できます。ファイルを編集すると、ページは自動的に更新されます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. 問題データの準備
 
-## Learn More
+`public/math_problems_lv0.json` ファイルは、問題ライブラリの表示に使用される数学問題のデータを含んでいます。このファイルは、`/Users/sakiharariki/青の数学/math_problems_lv0.json` からコピーされています。
 
-To learn more about Next.js, take a look at the following resources:
+## Next.js について
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js の詳細については、以下のリソースを参照してください。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js ドキュメント](https://nextjs.org/docs) - Next.js の機能と API について学ぶ
+- [Next.js を学ぶ](https://nextjs.org/learn) - インタラクティブな Next.js チュートリアル
 
-## Deploy on Vercel
+[Next.js GitHub リポジトリ](https://github.com/vercel/next.js) もご確認ください。フィードバックや貢献を歓迎します！
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Vercel へのデプロイ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js アプリをデプロイする最も簡単な方法は、Next.js の開発元である [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) を使用することです。
+
+詳細については、[Next.js デプロイメントドキュメント](https://nextjs.org/docs/app/building-your-application/deploying) を参照してください。# E-2
